@@ -1,0 +1,110 @@
+\documentclass[12pt,a4paper]{article}
+\title{Hadoop Commands}
+\author{Stefan}
+\date{\today}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.5ex plus 0.5ex minus 0.2ex}
+\begin{document}
+
+\maketitle
+
+\section{List of HDFS commands}
+\begin{itemize}
+
+\item cat - copy files to stdout, similar to UNIX cat command. (prints file in terminal). Example:
+\begin{verbatim}
+hadoop dfs -cat /user/hadoop/file4
+\end{verbatim}
+
+\item copyFromLocal – copy single src, or multiple srcs from local file system to the destination filesystem. Source has to be a local file reference. Example:
+\begin{verbatim}
+hadoop dfs -copyFromLocal localfile /user/hadoop/file1
+\end{verbatim}
+
+\item copyToLocal – copy files to the local file system. Files that fail the CRC check may be copied with the -ignorecrc option. Files and CRCs may be copied using the -crc option. Destination
+must be a local file reference. Example:
+\begin{verbatim}
+hadoop dfs -copyToLocal /user/hadoop/file localfile
+\end{verbatim}
+
+\item cp – copy files from source to destination. This command allows multiple sources as well in which case the destination must be a directory. Similar to UNIX cp command. Example:
+\begin{verbatim}
+hadoop dfs -cp /user/hadoop/file1 /user/hadoop/file2
+\end{verbatim}
+
+\item getmerge – take a source directory and a destination file as input and concatenate files in src into the destination local file. Optionally addnl can be set to enable adding a newline character at the end of each file. Example:
+\begin{verbatim}
+hadoop dfs -getmerge /user/hadoop/mydir/ ~/result_file
+\end{verbatim}
+
+\item ls – for a file returns stat on the file with the format:\\
+\emph{filename $<$number of replicas$>$ size modificationDate modificationTime permissions userid groupid\\}
+For a directory it returns list of its direct children as in UNIX, with the format:\\
+\emph{dirname $<$dir$>$ modificationDime modificationTime permissions userid groupid}\\
+Example:
+\begin{verbatim}
+hadoop dfs -ls /user/hadoop/file1
+\end{verbatim}
+
+\item lsr – recursive version of ls. Similar to UNIX ls -R command.
+Example:
+\begin{verbatim}
+hadoop dfs -lsr /user/hadoop/
+\end{verbatim}
+
+\item mkdir – create a directory. Behaves similar to UNIX mkdir -p command creating parent directories
+along the path (for bragging rights, what is the difference?)
+Example:
+\begin{verbatim}
+hadoop dfs -mkdir /user/hadoop/dir1 /user/hadoop/dir2
+\end{verbatim}
+
+\item mv – move files from source to destination similar to UNIX mv command. This command allows
+multiple sources as well in which case the destination needs to be a directory. Moving files
+across filesystems is not permitted.
+Example:
+\begin{verbatim}
+hadoop dfs -mv /user/hadoop/file1 /user/hadoop/file2
+\end{verbatim}
+
+\item rm – delete files, similar to UNIX rm command. Only deletes empty directories and files.
+Example:
+\begin{verbatim}
+hadoop dfs -rm /user/hadoop/file1
+\end{verbatim}
+
+\item rmr – recursive version of rm. Same as rm -r on UNIX.
+Example:
+\begin{verbatim}
+hadoop dfs -rmr /user/hadoop/dir1/
+\end{verbatim}
+
+\item tail – Displays last kilobyte of the file to stdout. Similar to UNIX tail command. Options:\begin{itemize}
+\item[-] f output appended data as the file grows (follow)
+\end{itemize}
+
+\begin{verbatim}
+hadoop dfs -tail /user/hadoop/file1
+\end{verbatim}
+
+\item test – perform various test. Options: \begin{itemize}
+\item[-]e check to see if the file exists. Return 0 if true.
+\item[-]z check to see if the file is zero length. Return 0 if true.
+\item[-]d check return 1 if the path is directory else return 0.
+
+\end{itemize}
+Example:
+\begin{verbatim}
+hadoop dfs -test -e /user/hadoop/file1
+\end{verbatim}
+
+\item touchz – create a file of zero length. Similar to UNIX touch command.
+Example:
+\begin{verbatim}
+hadoop dfs -touchz /user/hadoop/file1
+\end{verbatim}
+
+
+\end{itemize}
+
+\end{document}

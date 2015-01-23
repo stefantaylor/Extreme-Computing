@@ -1,0 +1,2 @@
+hadoop jar /opt/hadoop/hadoop-0.20.2/contrib/streaming/hadoop-0.20.2-streaming.jar -input /user/s1006260/data/input/example3 -output /user/s1006260/data/output -mapper mapper.py -file /afs/inf.ed.ac.uk/user/s10/s1006260/EXC/mapper.py -reducer reducer.py -file /afs/inf.ed.ac.uk/user/s10/s1006260/EXC/reducer.py
+

@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {2}Design Considerations}{2}
+\contentsline {section}{\numberline {3}Infrastructure Options}{3}
+\contentsline {subsection}{\numberline {3.1}Database or Cloud Infrastructure?}{3}
+\contentsline {subsection}{\numberline {3.2}To Buy or To Rent?}{4}
+\contentsline {subsection}{\numberline {3.3}File System}{6}
+\contentsline {subsection}{\numberline {3.4}Data De-duplication}{6}
+\contentsline {subsection}{\numberline {3.5}User Recommendations}{7}
+\contentsline {section}{\numberline {4}Proposed Solution}{8}
+\contentsline {section}{\numberline {5}Conclusion}{8}
